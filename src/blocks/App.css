@@ -3,12 +3,9 @@
 }
 
 .page__content {
-  width: 1360px;
-  height: 40px;
-  font-weight: 700;
-  padding: 0 40px;
+  max-width: 1360px;
   margin: 0 auto;
-  font-family: "CabinetGrotesk";
+  padding: 0 20px;
 }
 
 @media screen and (max-width: 600px) {
