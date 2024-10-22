@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  padding: 32px 0 28px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__group {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+}
+
+.header__logo {
+  margin-right: 20px;
+}
+
+.header__date-and-location {
+  margin: 0;
+}
+
+.header__clothes-add-btn {
+  align-items: center;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.header__clothes-add-btn:hover {
+  cursor: pointer;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__username {
+  margin: 0;
+}
