@@ -1,4 +1,5 @@
 import sunny from '../images/sunny.png'
+import '../blocks/WeatherCard.css'
 
 function WeatherCard() {
     return (
