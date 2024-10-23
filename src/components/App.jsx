@@ -1,6 +1,7 @@
 
 import '../blocks/App.css'
 import Header from './Header'
+import Main from './Main'
 
 function App() {
  
@@ -9,6 +10,7 @@ function App() {
     <div className='page'>
       <div className="page__content">
         <Header />
+        <Main />
       </div>
         
     </div>
@@ -17,4 +19,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

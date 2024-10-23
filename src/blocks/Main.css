@@ -1,7 +1,7 @@
-.weather-card {
+.cards__text {
   /* font-family: Cabinet Grotesk; */
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 24.8px;
   text-align: left;
 }
