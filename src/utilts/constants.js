@@ -72,6 +72,7 @@ export const defaultWeatherOptions = {
     url: new URL("../assets/night/Auto-Night.png", import.meta.url).href,
   },
 };
+
 export const defaultClothingItems = [
   {
     _id: 0,
