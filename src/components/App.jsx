@@ -6,7 +6,7 @@ import Main from './Main';
 import ModalWithForm from './ModalWithForm';
 
 function App() {
-  const [weatherData, setWeatherData] = useState({type:"cold"});
+  const [weatherData ] = useState({type:"cold"});
 
   return (
     <div className='page'>
