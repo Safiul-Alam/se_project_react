@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../vendor/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff")
+    format("woof");
+  font-display: swap;
+  font-style: normal;
+}
+
 .weather-card {
   position: relative;
   display: flex;
@@ -7,12 +15,15 @@
 }
 
 .weather-card__temp {
+  font-family: "Cabinet Grotesk";
   font-weight: 700;
+  font-size: 36px;
   line-height: 40px;
   margin: 0;
   position: absolute;
   top: 20px;
   left: 16px;
+  color: white;
 }
 
 .weather-card__image {
@@ -20,5 +31,3 @@
   object-position: right top;
   width: 100%;
 }
-
-

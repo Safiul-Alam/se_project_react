@@ -13,7 +13,9 @@ function Main({ weatherData }) {
                     Today is 75 &deg; F / You may want to wear:
                 </p>
                  <ul className="cards__list">
-                    {defaultClothingItems.filter((item) => {
+                    {defaultClothingItems
+                    .filter((item) => {
+                        // console.log(item);
                         return item.weather === weatherData.type;
                     })
                     .map((item) => {

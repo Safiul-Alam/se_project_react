@@ -1,8 +1,9 @@
 
-import { useState } from 'react'
-import '../blocks/App.css'
-import Header from './Header'
-import Main from './Main'
+import { useState } from 'react';
+import '../blocks/App.css';
+import Header from './Header';
+import Main from './Main';
+import ModalWithForm from './ModalWithForm';
 
 function App() {
   const [weatherData, setWeatherData] = useState({type:"cold"});
@@ -13,7 +14,7 @@ function App() {
         <Header />
         <Main weatherData={weatherData}/>
       </div>
-        
+        <ModalWithForm />
     </div>
       
   
