@@ -3,7 +3,7 @@ import logo from "../images/logo.svg"
 import avatar from "../images/avatar.svg"
 
 
-function Header() {
+function Header({ handleAddClick }) {
 
     return (
         <header className="header">
@@ -12,7 +12,7 @@ function Header() {
                 <p className="header__date-and-location">June 15, New York</p>
             </div>
             <div className="header__group">
-                <button className="header__clothes-add-btn">+ Add clothes</button>
+                <button onClick={handleAddClick} type="button" className="header__clothes-add-btn">+ Add clothes</button>
                 <div className="header__user-container">
                     <p className="header__username">Terrence tegegne</p>
                     <img src={avatar} alt="Terrence tegegne" className="header__avatar" />
