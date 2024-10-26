@@ -8,7 +8,7 @@ import ItemModal from './ItemModal';
 
 function App() {
   const [weatherData ] = useState({type:"cold"});
-  const [activeModal, setActiveModal] = useState("preview");
+  const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleAddClick = () => {
@@ -21,7 +21,7 @@ function App() {
 
   const handleCardClick = (cardData) => {
     setActiveModal ("preview");
-    selectedCard(cardData);
+    setSelectedCard(cardData);
   }
 
   return (
