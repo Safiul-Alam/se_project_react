@@ -1,6 +1,6 @@
-import sunny from '../images/sunny.png'
+
 import '../blocks/WeatherCard.css'
-import { weatherOptions } from '../utilts/constants';
+import { weatherOptions, defaultWeatherOptions } from '../utilts/constants';
 
 function WeatherCard({weatherData}) {
 
