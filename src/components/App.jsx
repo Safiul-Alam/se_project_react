@@ -8,8 +8,10 @@ import { getWeather, filterWeatherData } from "../utilts/weatherApi";
 import { APIkey, coordinates } from "../utilts/constants";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ 
-    type: "", temp: {F:999, C:999},
+  const [weatherData, setWeatherData] = useState({
+    type: "",
+    temp: { F: 999, C: 999 },
+    city: "", 
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -29,18 +31,19 @@ function App() {
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
-    .then((data) => {
-      // console.log(data);
-      const filteredData = filterWeatherData(data);
-      setWeatherData(filteredData);
-    })
-    .catch(console.error);
+      .then((data) => {
+        // console.log(data);
+        const filteredData = filterWeatherData(data);
+        setWeatherData(filteredData);
+    
+      })
+      .catch(console.error);
   }, []); // [] empty array makes it run one time only
 
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData}/>
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
       <ModalWithForm
