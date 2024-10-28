@@ -28,6 +28,7 @@ const foundOption = weatherOptions.find((option) => {
     ? foundOption
     : defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
 
+    
   return (
     <section className="weather-card">
       <p className="weather-card__temp">{weatherData.temp.F} &deg;</p>
