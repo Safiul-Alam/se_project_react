@@ -113,8 +113,13 @@ export const defaultClothingItems = [
 ];
 
 export const coordinates = {
+  //Buffalo
   latitude: 42.88023,
   longitude: -78.878738,
+
+  //los angeles
+  // latitude: 34.052235,
+  // longitude: -118.243683,
 };
 
 export const APIkey = "47331ebedcc33ab25cab1e33e473cddb";

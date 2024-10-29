@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../vendor/Fonts/OTF/CabinetGrotesk-Bold.otf") format("woff");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
 .header {
   display: flex;
   padding: 32px 0 28px;
@@ -12,11 +20,18 @@
 }
 
 .header__logo {
-  margin-right: 20px;
+  margin-right: 24px;
 }
 
 .header__date-and-location {
-  margin: 0;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 0 20px 0 auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .header__clothes-add-btn {
