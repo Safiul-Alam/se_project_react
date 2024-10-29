@@ -1,14 +1,12 @@
-import "../blocks/Footer.css"
+import "../blocks/Footer.css";
 
 function Footer() {
-    return (
-        <footer className="footer">
-             <div className="footer__text-container">
-            <p className="footer__author">Mohammad Alam</p>
-            <p className="footer__copyright">{new Date().getFullYear()}</p>
-            </div>
-        </footer>
-    )
+  return (
+    <footer className="footer">
+      <p className="footer__author">Devoloped by Mohammad Alam</p>
+      <p className="footer__copyright">{new Date().getFullYear()}</p>
+    </footer>
+  );
 }
 
 export default Footer;
