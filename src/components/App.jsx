@@ -4,8 +4,8 @@ import Header from "./Header";
 import Main from "./Main";
 import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
-import { getWeather, filterWeatherData } from "../utilts/weatherApi";
-import { APIkey, coordinates } from "../utilts/constants";
+import { getWeather, filterWeatherData } from "../utils/weatherApi";
+import { APIkey, coordinates } from "../utils/constants";
 import Footer from "./Footer";
 
 function App() {
