@@ -38,13 +38,14 @@ function App() {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   }
-console.log(currentTemperatureUnit);
+// console.log(currentTemperatureUnit);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         // console.log(data);
         const filteredData = filterWeatherData(data);
+        console.log(filteredData);
         setWeatherData(filteredData);
       })
       .catch(console.error);
