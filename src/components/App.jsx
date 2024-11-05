@@ -7,7 +7,7 @@ import ItemModal from "./ItemModal";
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import { APIkey, coordinates } from "../utils/constants";
 import Footer from "./Footer";
-import {CurrentTemperatureUnitContext} from "../contexts/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
 
 function App() {
