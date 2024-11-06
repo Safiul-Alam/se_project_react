@@ -16,7 +16,7 @@ const TottleSwitch = () => {
     const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
         CurrentTemperatureUnitContext
       );
-      console.log(currentTemperatureUnit)
+    //   console.log(currentTemperatureUnit)
 
     return (
 

@@ -17,6 +17,7 @@ function WeatherCard({ weatherData }) {
 //     weatherOption = filteredOptions[0];
 //   }
 
+
 const foundOption = weatherOptions.find((option) => {
     return (
       option.day === weatherData.isDay &&
