@@ -23,7 +23,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
 
   const handleAddClick = () => {
-    setActiveModal("Add-garment");
+    setActiveModal("add-garment");
   };
 
   const closeActiveModal = () => {
@@ -31,6 +31,7 @@ function App() {
   };
 
   const handleCardClick = (cardData) => {
+
     setActiveModal("preview");
     setSelectedCard(cardData);
   };
@@ -45,7 +46,10 @@ function App() {
   // console.log(currentTemperatureUnit);
 
   const onAddItem = (e) => {
+    e.preventDefault();
+
     console.log(e);
+    console.log(e.target);
   }
 
   useEffect(() => {
@@ -138,9 +142,9 @@ function App() {
             </label>
           </fieldset>
         </ModalWithForm> */}
-        <AddItemModal 
-         handleCloseModal={closeActiveModal} 
-         isOpen={activeModal === "add-garment"} onAddItem={onAddItem} />
+        <AddItemModal
+          handleCloseModal={closeActiveModal}
+          isOpen={activeModal === "add-garment"} onAddItem={onAddItem} />
 
         <ItemModal
           activeModal={activeModal}

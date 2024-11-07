@@ -2,23 +2,23 @@ import React from "react";
 import ModalWithForm from "./ModalWithForm";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
-const AddItemModal = ({ 
+const AddItemModal = ({
   handleCloseModal,
   isOpen,
   activeModal,
   onAddItem,
- }) => {
+}) => {
 
 
   function handleSubmit(e) {
-    // prevent default behavior
-    // call onAddItem with appropriate arguments
+    e.preventDefault();
+    onAddItem({});
   }
 
   return (
 
     <ModalWithForm title="New garment" buttonText="Add garment" activeModal={activeModal}
-      onClose={handleCloseModal} isOpen={isOpen} onSubmit={onAddItem}
+      onClose={handleCloseModal} isOpen={isOpen} onSubmit={handleSubmit}
     >
 
       <label htmlFor="name" className="modal__lable">
