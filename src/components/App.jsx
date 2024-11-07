@@ -8,6 +8,7 @@ import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import { APIkey, coordinates } from "../utils/constants";
 import Footer from "./Footer";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
+import AddItemModal from "./AddItemModal";
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
   }
   // console.log(currentTemperatureUnit);
 
+  const onAddItem = (e) => {
+    console.log(e);
+  }
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -65,7 +70,8 @@ function App() {
           <Footer />
         </div>
 
-        <ModalWithForm
+
+        {/* <ModalWithForm
           title="New garment"
           buttonText="Add garment"
           activeModal={activeModal}
@@ -131,7 +137,10 @@ function App() {
               Cold
             </label>
           </fieldset>
-        </ModalWithForm>
+        </ModalWithForm> */}
+        <AddItemModal 
+         handleCloseModal={closeActiveModal} 
+         isOpen={activeModal === "add-garment"} onAddItem={onAddItem} />
 
         <ItemModal
           activeModal={activeModal}
