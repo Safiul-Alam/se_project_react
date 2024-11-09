@@ -2,8 +2,9 @@ import "../blocks/ItemCard.css"
 
 function ItemCard({ item, onCardClick }) {
     // console.log(item)
-    
+
     const handleCardClick  = () => {
+        console.log(onCardClick)
         onCardClick(item);
     }
     return (
