@@ -3,7 +3,7 @@ import '../blocks/ModalWithForm.css';
 
 //Add garment modal shell
 function ModalWithForm({ 
-    children, buttonText, title, activeModal, onClose, isOpen, onSubmit }){
+    children, buttonText, title, onClose, isOpen, onSubmit }){
     return (
         // <div className={`modal ${activeModal === "Add-garment" && "modal_opened"}`}>
         

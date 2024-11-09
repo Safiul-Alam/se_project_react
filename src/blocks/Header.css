@@ -17,11 +17,15 @@
   display: flex;
   align-items: center;
   line-height: 24px;
-  
 }
 
 .header__logo {
   margin-right: 24px;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #000;
 }
 
 .header__date-and-location {
