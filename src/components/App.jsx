@@ -11,7 +11,7 @@ import Footer from "./Footer";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
-import { getItems } from "../utils/api";
+import { getItems, postItems, deleteItems } from "../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -48,11 +48,25 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
-  const handleAddItem = (values) => {
 
-    // console.log(e.target);
-    console.log(values);
+  // function createItem(item){
+  //   return fetch(...)
+  // }
+
+  const handleModalClose = () => {
+    setActiveModal("");
   };
+
+  const handleAddItem = (item) => {
+    return postItems(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        handleModalClose();
+      })
+      .catch((err) => console.log(err));
+  };
+
+
 
   useEffect(() => {
     getWeather(coordinates, APIkey)

@@ -6,25 +6,42 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
   const [link, setUrl] = useState("");
 
+
   const handleNameChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setName(e.target.value);
   };
 
 
   const handleUrlChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setUrl(e.target.value);
+  };
+
+  const [weather, setWeather] = useState("");
+  const handleWeatherChange = (e) => {
+    setWeather(e.target.value);
   };
 
   // function handleSubmit(e) {
   //   e.preventDefault();
   //   onAddItem(e);
   // }
+  // const resetCurrentForm = () => {
+  //   resetForm({ name: "", imageUrl: "", weather: "" });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link });
+    const newItem = {
+      _id: null,
+      name: link.name,
+      weather: link.weather,
+      imageUrl: link.imageUrl,
+    };
+    onAddItem(newItem);
   };
+
 
   return (
     <ModalWithForm
@@ -67,7 +84,9 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
             type="radio"
             className="modal__radio-input"
             id="hot"
+            value="hot"
             name="weather"
+            onChange={handleWeatherChange}
           />{" "}
           Hot
         </label>
@@ -77,7 +96,9 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
             type="radio"
             className="modal__radio-input"
             id="warm"
+            value="warm"
             name="weather"
+            onChange={handleWeatherChange}
           />{" "}
           Warm
         </label>
@@ -87,7 +108,9 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
             type="radio"
             className="modal__radio-input"
             id="cold"
+            value="cold"
             name="weather"
+            onChange={handleWeatherChange}
           />{" "}
           Cold
         </label>
