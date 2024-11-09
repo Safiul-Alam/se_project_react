@@ -1,4 +1,4 @@
-import { defaultClothingItems } from "../utils/constants";
+// import { defaultClothingItems } from "../utils/constants";
 import ItemCard from "./ItemCard";
 import "../blocks/ClothesSection.css"
 

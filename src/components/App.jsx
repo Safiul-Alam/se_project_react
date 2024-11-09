@@ -86,7 +86,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Main weatherData={weatherData} 
               onCardClick={handleCardClick} clothingItems={clothingItems}/>}></Route>
-            <Route path="/profile" element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+            <Route path="/profile" 
+             element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
           </Routes>
           <Footer />
         </div>
