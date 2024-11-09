@@ -31,15 +31,16 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
   //   resetForm({ name: "", imageUrl: "", weather: "" });
   // };
 
+  const resetInputs = () => {
+    setName("");
+    setWeather("");
+    setUrl("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
-      _id: null,
-      name: link.name,
-      weather: link.weather,
-      imageUrl: link.imageUrl,
-    };
-    onAddItem(newItem);
+
+    onAddItem({ name, weather: weather, imageUrl: link, resetInputs });
   };
 
 
