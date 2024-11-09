@@ -71,5 +71,18 @@
   margin: 0;
   line-height: 24.8px;
   font-size: 20px;
+  
+}
+
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+}
+
+.header__link {
   text-decoration: none;
 }

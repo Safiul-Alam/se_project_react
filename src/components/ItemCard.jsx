@@ -2,6 +2,7 @@ import "../blocks/ItemCard.css"
 
 function ItemCard({ item, onCardClick }) {
     // console.log(item)
+    
     const handleCardClick  = () => {
         onCardClick(item);
     }
