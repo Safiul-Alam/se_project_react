@@ -75,7 +75,7 @@ function App() {
     .catch(console.error)
   }, []); 
 
-  
+
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
@@ -84,8 +84,9 @@ function App() {
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} clothingItems={clothingItems}/>
           <Routes>
-            <Route path="/" element={<Main weatherData={weatherData} onCardClick={handleCardClick} clothingItems={clothingItems}/>}></Route>
-            <Route path="/profile" element={<Profile onCardClick={handleCardClick} />}></Route>
+            <Route path="/" element={<Main weatherData={weatherData} 
+              onCardClick={handleCardClick} clothingItems={clothingItems}/>}></Route>
+            <Route path="/profile" element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
           </Routes>
           <Footer />
         </div>
