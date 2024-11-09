@@ -12,7 +12,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
     const { currentTemperatureUnit } = useContext(
         CurrentTemperatureUnitContext
     );
-    const temp = weatherData?.temp?.[currentTemperatureUnit] || 999;
+    // const temp = weatherData?.temp?.[currentTemperatureUnit] || 999;
 
     return (
         <main>
