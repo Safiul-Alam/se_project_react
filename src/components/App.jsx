@@ -12,6 +12,7 @@ import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitCon
 import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
+import DeleteModal from "./DeleteModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -66,6 +67,21 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const handleDeleteCard = (card) => {
+    deleteItems(card._id)
+      .then(() => {
+        setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
+        setSelectedCard({});
+        handleModalClose();
+      })
+      .catch(console.error);
+  };
+  const handleDeleteCardClick = () => {
+    setActiveModal("delete-confirmation");
+  };
+
+
+
 
 
   useEffect(() => {
@@ -82,12 +98,12 @@ function App() {
 
   useEffect(() => {
     getItems()
-    .then((items) => {
-      console.log(items)
-      setClothingItems(items)
-    })
-    .catch(console.error)
-  }, []); 
+      .then((items) => {
+        console.log(items)
+        setClothingItems(items)
+      })
+      .catch(console.error)
+  }, []);
 
 
   return (
@@ -96,12 +112,12 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} clothingItems={clothingItems}/>
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} clothingItems={clothingItems} />
           <Routes>
-            <Route path="/" element={<Main weatherData={weatherData} 
-              onCardClick={handleCardClick} clothingItems={clothingItems}/>}></Route>
-            <Route path="/profile" 
-             element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+            <Route path="/" element={<Main weatherData={weatherData}
+              onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+            <Route path="/profile"
+              element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
           </Routes>
           <Footer />
         </div>
@@ -117,7 +133,18 @@ function App() {
           activeModal={activeModal}
           cardData={selectedCard}
           onClose={closeActiveModal}
+          handleDeleteClick={handleDeleteCardClick}
         />
+
+        <DeleteModal
+          item={selectedCard}
+          isOpened={activeModal === "delete-confirmation"}
+          onClose={handleModalClose}
+          handleDeleteItem={handleDeleteCard}
+          selectedCard={selectedCard}
+          handleCloseClick={handleModalClose}
+        />
+
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

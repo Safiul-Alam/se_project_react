@@ -19,12 +19,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591"
     },
     {
-      "_id": 3,
-      "name": "Coat",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4"
-    },
-    {
       "_id": 4,
       "name": "Dress",
       "weather": "hot",
@@ -35,12 +29,6 @@
       "name": "Hoodie",
       "weather": "cold",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8"
-    },
-    {
-      "_id": 6,
-      "name": "Jacket",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad"
     },
     {
       "_id": 7,
@@ -127,6 +115,12 @@
       "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
       "weather": "hot",
       "_id": 22
+    },
+    {
+      "name": "as",
+      "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
+      "weather": "cold",
+      "_id": 23
     }
   ]
 }
