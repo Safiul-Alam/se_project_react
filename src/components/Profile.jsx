@@ -3,19 +3,20 @@ import ClothesSection from "./ClothesSection";
 import SideBar from "./SideBar";
 
 function Profile({ onCardClick, clothingItems, handleAddClick }) {
-    return (
-        <div className="profile">
+  return (
+    <div className="profile">
       <section className="profile__sidebar"></section>
       <SideBar />
 
       <section className="profile__clothing-items">
-        <ClothesSection onCardClick={onCardClick} 
+        <ClothesSection
+          onCardClick={onCardClick}
           clothingItems={clothingItems}
-          handleAddClick={handleAddClick}/>
+          handleAddClick={handleAddClick}
+        />
       </section>
-        </div>
-
-    );
+    </div>
+  );
 }
 
 export default Profile;

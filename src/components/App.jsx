@@ -49,7 +49,6 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
-
   // function createItem(item){
   //   return fetch(...)
   // }
@@ -80,10 +79,6 @@ function App() {
     setActiveModal("delete-confirmation");
   };
 
-
-
-
-
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -95,16 +90,14 @@ function App() {
       .catch(console.error);
   }, []); // [] empty array makes it run one time only
 
-
   useEffect(() => {
     getItems()
       .then((items) => {
         // console.log(items)
-        setClothingItems(items)
+        setClothingItems(items);
       })
-      .catch(console.error)
+      .catch(console.error);
   }, []);
-
 
   return (
     <div className="page">
@@ -112,16 +105,35 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} clothingItems={clothingItems} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            clothingItems={clothingItems}
+          />
           <Routes>
-            <Route path="/" element={<Main weatherData={weatherData}
-              onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
-            <Route path="/profile"
-              element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            ></Route>
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  handleAddClick={handleCardClick}
+                />
+              }
+            ></Route>
           </Routes>
           <Footer />
         </div>
-
 
         <AddItemModal
           onCloseModal={closeActiveModal}
@@ -144,7 +156,6 @@ function App() {
           selectedCard={selectedCard}
           handleCloseClick={handleModalClose}
         />
-
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
