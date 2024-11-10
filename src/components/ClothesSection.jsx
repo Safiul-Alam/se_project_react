@@ -2,12 +2,14 @@
 import ItemCard from "./ItemCard";
 import "../blocks/ClothesSection.css"
 
-function ClothesSection({onCardClick, clothingItems}) {
+function ClothesSection({onCardClick, clothingItems, handleAddClick}) {
     return (
         <div className="clothes-section">
             <div className="clothes__header">
                 <p className="clothes__section-title">Your Items</p>
-                <button className="clothes__section-add-button">+ Add New</button>
+                <button className="clothes__section-add-button" 
+                    onClick={handleAddClick}>
+                    + Add New</button>
             </div>
 
             <ul className="cards__list">
