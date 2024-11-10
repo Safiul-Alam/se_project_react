@@ -53,15 +53,13 @@ function App() {
   //   return fetch(...)
   // }
 
-  const handleModalClose = () => {
-    setActiveModal("");
-  };
+
 
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
-        handleModalClose();
+        closeActiveModal();
       })
       .catch((err) => console.log(err));
   };
@@ -71,7 +69,7 @@ function App() {
       .then(() => {
         setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
         setSelectedCard({});
-        handleModalClose();
+        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -151,10 +149,10 @@ function App() {
         <DeleteModal
           item={selectedCard}
           isOpened={activeModal === "delete-confirmation"}
-          onClose={handleModalClose}
+          onClose={closeActiveModal}
           handleDeleteItem={handleDeleteCard}
           selectedCard={selectedCard}
-          handleCloseClick={handleModalClose}
+          handleCloseClick={closeActiveModal}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
