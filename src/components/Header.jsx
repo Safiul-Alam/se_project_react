@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../blocks/Header.css";
 import logo from "../images/logo.svg";
 import avatar from "../images/avatar.svg";
-import TottleSwitch from "./ToggleSwitch";
+import ToggleSwitch from "./ToggleSwitch";
 
 function Header({ handleAddClick, weatherData }) {
     const currentDate = new Date().toLocaleString("default", {
@@ -25,7 +25,7 @@ function Header({ handleAddClick, weatherData }) {
             </div>
 
             <div className="header__group ">
-                <TottleSwitch />
+                <ToggleSwitch />
                 <button
                     onClick={handleAddClick}
                     type="button"

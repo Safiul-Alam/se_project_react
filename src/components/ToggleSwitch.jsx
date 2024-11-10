@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
 
-const TottleSwitch = () => {
+const ToggleSwitch = () => {
     // console.log("toggle switch")
     // const [currentTemperatureUnit, handleToggleSwitchChange] = useState("C");
 
@@ -32,4 +32,4 @@ const TottleSwitch = () => {
     );
 }
 
-export default TottleSwitch;
+export default ToggleSwitch;
