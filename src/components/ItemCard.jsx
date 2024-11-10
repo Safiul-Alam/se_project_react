@@ -4,7 +4,7 @@ function ItemCard({ item, onCardClick }) {
     // console.log(item)
 
     const handleCardClick  = () => {
-        console.log(onCardClick)
+        // console.log(onCardClick)
         onCardClick(item);
     }
     return (

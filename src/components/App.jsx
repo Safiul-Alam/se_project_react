@@ -99,7 +99,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((items) => {
-        console.log(items)
+        // console.log(items)
         setClothingItems(items)
       })
       .catch(console.error)
