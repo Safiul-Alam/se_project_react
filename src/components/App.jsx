@@ -141,7 +141,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
-                  handleAddClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                 />
               }
             ></Route>

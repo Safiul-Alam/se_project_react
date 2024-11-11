@@ -2,7 +2,7 @@ import "../blocks/ItemModal.css";
 
 function ItemModal({ activeModal, onClose, cardData, handleDeleteClick }) {
 
-  
+
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
      
