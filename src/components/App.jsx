@@ -49,12 +49,7 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
-  // function createItem(item){
-  //   return fetch(...)
-  // }
-
-
-
+ 
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
@@ -77,6 +72,8 @@ function App() {
     setActiveModal("delete-confirmation");
   };
 
+
+  
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
