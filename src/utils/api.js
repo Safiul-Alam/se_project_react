@@ -7,6 +7,7 @@ function checkResponse(res) {
 function getItems() {
     return fetch(`${baseUrl}/items`)
     .then((res) => {
+        // console.log(res);
         return res.ok ? res.json() 
         : Promise.reject(`Error: ${res.status}`)
         .then(checkResponse);
