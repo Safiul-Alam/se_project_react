@@ -1,3 +1,5 @@
+import {checkResponse} from "../utils/api"
+
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
@@ -7,7 +9,7 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
     } else {
       return Promise.reject(`Error: ${res.status}`);
     }
-  });
+  }).then(checkResponse);
 };
 
 
