@@ -79,48 +79,10 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "Mohammad Safiul Alam",
-      "_id": 17
-    },
-    {
-      "name": "qqq",
-      "_id": 18
-    },
-    {
-      "_id": 19
-    },
-    {
-      "_id": 20
-    },
-    {
-      "name": "qqq",
-      "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
-      "weather": "warm",
-      "_id": 21
-    },
-    {
-      "name": "ff",
-      "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
-      "weather": "hot",
-      "_id": 22
-    },
-    {
-      "name": "as",
-      "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
-      "weather": "cold",
-      "_id": 23
-    },
-    {
       "name": "www",
       "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
       "weather": "cold",
       "_id": 24
-    },
-    {
-      "name": "www",
-      "imageUrl": "https://media.istockphoto.com/id/2151044386/photo/hiking-path-in-seiser-alm-at-sunrise.jpg?s=2048x2048&w=is&k=20&c=kA-frxQt5ui3uFGgS0OQRP5BrOJ5bvIvMIw-I1g-Hpk=",
-      "weather": "cold",
-      "_id": 25
     },
     {
       "name": "ldjww",
