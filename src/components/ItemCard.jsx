@@ -1,23 +1,23 @@
-import "../blocks/ItemCard.css"
+import "../blocks/ItemCard.css";
 
-function ItemCard({ item, onCardClick }) {
-    // console.log(item)
+function ItemCard({item, onCardClick }) {
+  // console.log(item)
 
-    const handleCardClick  = () => {
-        // console.log(onCardClick)
-        onCardClick(item);
-    }
-    return (
-        <li className="card">
-            <h2 className="card__name">{item.name}</h2>
-            <img onClick={handleCardClick}
-                className="card__image" 
-                src={item.imageUrl} 
-                alt={item.name} 
-            />
-        </li>
-    );
-
+  const handleCardClick = () => {
+    // console.log(onCardClick)
+    onCardClick(item);
+  };
+  return (
+    <li className="card">
+      <h2 className="card__name">{item.name}</h2>
+      <img
+        onClick={handleCardClick}
+        className="card__image"
+        src={item.imageUrl}
+        alt={item.name}
+      />
+    </li>
+  );
 }
 
 export default ItemCard;

@@ -15,8 +15,11 @@ export default function DeleteModal({
   return (
     <div className={`modal ${isOpened && "modal_opened"}`}>
       <div className="modal__container modal__content_type_delete modal__content">
-        <button className="modal__close" type="button" onClick={handleCloseClick}>
-        </button>
+        <button
+          className="modal__close"
+          type="button"
+          onClick={handleCloseClick}
+        ></button>
         <p className="modal__delete_question">
           Are you sure you want to delete this item?
           <br /> This action is irreversible.

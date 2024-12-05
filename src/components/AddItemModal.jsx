@@ -7,12 +7,10 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
   const [link, setUrl] = useState("");
 
-
   const handleNameChange = (e) => {
     // console.log(e.target.value);
     setName(e.target.value);
   };
-
 
   const handleUrlChange = (e) => {
     // console.log(e.target.value);
@@ -43,7 +41,6 @@ const AddItemModal = ({ onCloseModal, isOpen, onAddItem }) => {
 
     onAddItem({ name, weather: weather, imageUrl: link, resetInputs });
   };
-
 
   return (
     <ModalWithForm

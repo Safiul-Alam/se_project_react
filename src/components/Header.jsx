@@ -5,47 +5,50 @@ import avatar from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
 
 function Header({ handleAddClick, weatherData }) {
-    const currentDate = new Date().toLocaleString("default", {
-        month: "long",
-        day: "numeric",
-    });
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
 
-    return (
-        <header className="header">
+ 
 
-            <div className="header__group ">
-                <Link to="/" className="header__link">
-                    <img className="header__logo" src={logo} alt="header logo" />
-                </Link>
+  return (
+    <header className="header">
+      <div className="header__group ">
+        <Link to="/" className="header__link">
+          <img className="header__logo" src={logo} alt="header logo" />
+        </Link>
 
-                {/* <p className="header__date-and-location">June 15, New York</p> */}
-                <p className="header__date-and-location">
-                    {currentDate}, {weatherData.city}
-                </p>
-            </div>
+        {/* <p className="header__date-and-location">June 15, New York</p> */}
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city}
+        </p>
+      </div>
 
-            <div className="header__group ">
-                <ToggleSwitch />
-                
-                <button
-                    onClick={handleAddClick}
-                    type="button"
-                    className="header__clothes-add-btn"
-                >
-                    + Add clothes
-                </button>
+      <div className="header__group ">
+        <ToggleSwitch />
 
-                <Link to="/profile" className="header__link">
-                    <div className="header__user-container">
-                        <p className="header__username">Terrence tegegne</p>
-                        <img src={avatar} alt="Terrence tegegne" className="header__avatar" />
-                    </div>
-                </Link>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__clothes-add-btn"
+        >
+          + Add clothes
+        </button>
 
-            </div>
-
-        </header>
-    );
+        <Link to="/profile" className="header__link">
+          <div className="header__user-container">
+            <p className="header__username">Terrence tegegne</p>
+            <img
+              src={avatar}
+              alt="Terrence tegegne"
+              className="header__avatar"
+            />
+          </div>
+        </Link>
+      </div>
+    </header>
+  );
 }
 
 export default Header;
