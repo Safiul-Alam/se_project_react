@@ -14,6 +14,14 @@ import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
+import {
+  signUp,
+  getUserProfile,
+  handleEditProfile,
+  addCardLike,
+  removeCardLike,
+} from "../utils/auth";
+import * as auth from "../../utils/auth.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -95,6 +103,25 @@ function App() {
       .catch((error) => {
         console.error("error at signing up", error);
       });
+  };
+
+  const onLogIn = ({ email, password }) => {
+    console.log("login");
+    auth
+      .logIn({ email, password })
+      .then((data) => {
+        console.log("data", data);
+
+        localStorage.setItem("jwt", data.token);
+        getUserProfile(data.token).then((res) => {
+          console.log(res);
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+          navigate("/profile");
+        });
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
