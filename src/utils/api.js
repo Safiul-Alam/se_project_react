@@ -31,4 +31,4 @@ function deleteItems(cardID) {
   }).then(checkResponse);
 }
 
-export { getItems, postItems, deleteItems, checkResponse };
+export { getItems, postItems, deleteItems, checkResponse, baseUrl };
