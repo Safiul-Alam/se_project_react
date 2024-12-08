@@ -4,51 +4,80 @@ import logo from "../images/logo.svg";
 import avatar from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  isLoggedIn,
+  handleLoginModal,
+  handleRegisterModal,
+}) {
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
- 
+  if (isLoggedIn) {
+    return (
+      <header className="header">
+        <div className="header__group ">
+          <Link to="/" className="header__link">
+            <img className="header__logo" src={logo} alt="header logo" />
+          </Link>
 
-  return (
-    <header className="header">
-      <div className="header__group ">
-        <Link to="/" className="header__link">
-          <img className="header__logo" src={logo} alt="header logo" />
+
+          <p className="header__date-and-location">
+            {currentDate}, {weatherData.city}
+          </p>
+        </div>
+
+        <div className="header__group ">
+          <ToggleSwitch />
+
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__clothes-add-btn"
+          >
+            + Add clothes
+          </button>
+
+
+
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">Terrence tegegne</p>
+              <img
+                src={avatar}
+                alt="Terrence tegegne"
+                className="header__avatar"
+              />
+            </div>
+          </Link>
+
+        </div>
+      </header>
+    );
+  } else {
+    return (
+      <header className="header">
+        <Link to='/'>
+          <img className="header__logo" src={logo} alt='header logo' />
         </Link>
+        <p className="header__date-location">{currentDate} {weatherData.city}</p>
+        <div className="header__actions"> 
+          <ToggleSwitch />
+        </div>
+        <button className="header__signup" onClick={handleRegisterModal}>Sign Up</button>
+        <button className="header__login" onClick={handleLoginModal}>Log In</button>
+      </header>
 
-        {/* <p className="header__date-and-location">June 15, New York</p> */}
-        <p className="header__date-and-location">
-          {currentDate}, {weatherData.city}
-        </p>
-      </div>
 
-      <div className="header__group ">
-        <ToggleSwitch />
+    );
+  }
 
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__clothes-add-btn"
-        >
-          + Add clothes
-        </button>
 
-        <Link to="/profile" className="header__link">
-          <div className="header__user-container">
-            <p className="header__username">Terrence tegegne</p>
-            <img
-              src={avatar}
-              alt="Terrence tegegne"
-              className="header__avatar"
-            />
-          </div>
-        </Link>
-      </div>
-    </header>
-  );
+
 }
 
 export default Header;

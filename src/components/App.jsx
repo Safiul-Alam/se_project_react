@@ -13,6 +13,7 @@ import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
+// import RegisterModal from "./RegisterModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -27,18 +28,34 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   const handleAddClick = () => {
     setActiveModal("add-garment");
-  };
-
-  const closeActiveModal = () => {
-    setActiveModal("");
   };
 
   const handleCardClick = (cardData) => {
     setActiveModal("preview");
     setSelectedCard(cardData);
   };
+
+  const handleDeleteCardClick = () => {
+    setActiveModal("delete-confirmation");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+
+  const handleRegisterModal = () => {
+    setActiveModal('signUp');
+  };
+  const handleLoginModal = () => {
+    setActiveModal('login');
+  };
+
+
 
   const handleToggleSwitchChange = () => {
     // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
@@ -67,9 +84,9 @@ function App() {
       })
       .catch(console.error);
   };
-  const handleDeleteCardClick = () => {
-    setActiveModal("delete-confirmation");
-  };
+
+
+
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -100,7 +117,6 @@ function App() {
         closeActiveModal();
       }
     };
-
     document.addEventListener("keydown", handleEscClose);
 
     return () => {
@@ -111,6 +127,7 @@ function App() {
 
   return (
     <div className="page">
+
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -167,6 +184,7 @@ function App() {
           handleCloseClick={closeActiveModal}
         />
       </CurrentTemperatureUnitContext.Provider>
+      {/* <RegisterModal/> */}
     </div>
   );
 }

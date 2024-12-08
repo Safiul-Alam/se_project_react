@@ -28,6 +28,7 @@ export default function DeleteModal({
         <button type="button" className="modal__confirm" onClick={deleteCard}>
           Yes, delete item
         </button>
+
         <button
           type="button"
           className="modal__cancel"
@@ -35,6 +36,7 @@ export default function DeleteModal({
         >
           Cancel
         </button>
+        
       </div>
     </div>
   );
