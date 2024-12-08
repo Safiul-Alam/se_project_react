@@ -199,6 +199,7 @@ function App() {
         onSignUp={onSignUp}
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
+        handleRegisterModal={handleRegisterModal}
       />
     </div>
   );
