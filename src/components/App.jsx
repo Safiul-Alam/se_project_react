@@ -13,7 +13,7 @@ import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
-// import RegisterModal from "./RegisterModal";
+import RegisterModal from "./RegisterModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -28,7 +28,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -86,7 +86,16 @@ function App() {
   };
 
 
-
+  const onSignUp = ({ email, password, name, avatar }) => {
+    const userProfile = { email, password, name, avatar };
+    signUp(userProfile)
+      .then((res) => {
+        onLogIn({ email, password });
+      })
+      .catch((error) => {
+        console.error("error at signing up", error);
+      });
+  };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -136,6 +145,7 @@ function App() {
             handleAddClick={handleAddClick}
             weatherData={weatherData}
             clothingItems={clothingItems}
+            isLoggedIn={isLoggedIn}
           />
           <Routes>
             <Route
@@ -184,7 +194,12 @@ function App() {
           handleCloseClick={closeActiveModal}
         />
       </CurrentTemperatureUnitContext.Provider>
-      {/* <RegisterModal/> */}
+      <RegisterModal
+        isOpen={activeModal === "signUp"}
+        onSignUp={onSignUp}
+        closeActiveModal={closeActiveModal}
+        openLoginModal={handleLoginModal}
+      />
     </div>
   );
 }
