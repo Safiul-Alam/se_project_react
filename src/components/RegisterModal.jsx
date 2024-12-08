@@ -9,8 +9,7 @@ const RegisterModal = ({
     buttonClass = "modal__submit",
     closeActiveModal,
     openLoginModal,
-    handleRegisterModal
-
+    handleRegisterModal,
 
 }) => {
     const [name, setName] = useState("");
