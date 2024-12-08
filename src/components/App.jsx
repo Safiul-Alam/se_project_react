@@ -21,7 +21,7 @@ import {
   addCardLike,
   removeCardLike,
 } from "../utils/auth";
-import * as auth from "../../utils/auth.js";
+import * as auth from "../utils/auth.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
