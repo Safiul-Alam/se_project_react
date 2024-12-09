@@ -112,7 +112,7 @@ function App() {
       });
   };
 
-  const onLogIn = ({ email, password }) => {
+  const handleLogIn = ({ email, password }) => {
     console.log("login");
     auth
       .logIn({ email, password })
@@ -129,6 +129,22 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
+  };
+
+  const handleLogOutClick = () => {
+    try {
+      localStorage.removeItem("jwt");
+      Promise.resolve()
+        .then(() => {
+          setIsLoggedIn(false);
+          closeActiveModal();
+        })
+        .catch((error) => {
+          console.error("Error during logout:", error);
+        });
+    } catch (error) {
+      console.error("Unexpected error during logout:", error);
+    }
   };
 
 
@@ -252,7 +268,6 @@ function App() {
       </CurrentTemperatureUnitContext.Provider>
       <RegisterModal
         isOpen={activeModal === "signUp"}
-
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
         onRegister={handleRegister}
@@ -261,7 +276,7 @@ function App() {
       <LoginModal
         isOpen={activeModal === "login"}
         closeActiveModal={closeActiveModal}
-        onLogIn={onLogIn}
+        onLogIn={handleLogIn}
         openRegisterModal={handleRegisterModal}
       />
     </div>

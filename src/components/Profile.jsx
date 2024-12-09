@@ -5,7 +5,9 @@ import SideBar from "./SideBar";
 function Profile({ onCardClick, clothingItems, handleAddClick }) {
   return (
     <div className="profile">
-      <section className="profile__sidebar"></section>
+      <section className="profile__sidebar">
+        
+      </section>
       <SideBar />
 
       <section className="profile__clothing-items">
