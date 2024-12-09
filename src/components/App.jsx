@@ -14,6 +14,7 @@ import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
+import LoginModal from './LoginModal.jsx';
 import {
   signUp,
   getUserProfile,
@@ -174,6 +175,7 @@ function App() {
             clothingItems={clothingItems}
             isLoggedIn={isLoggedIn}
             handleRegisterModal={handleRegisterModal}
+            handleLoginModal = {handleLoginModal}
           />
           <Routes>
             <Route
