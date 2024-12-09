@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./Main";
@@ -11,7 +11,7 @@ import Footer from "./Footer";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
-import { getItems, postItems, deleteItems } from "../utils/api";
+import { getItems, postItems, deleteItems, setCurrentUser } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
 import LoginModal from './LoginModal.jsx';
@@ -38,6 +38,8 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -161,6 +163,22 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]); // watch activeModal here
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      getUserProfile(token)
+        .then((res) => {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+        })
+        .catch((error) => {
+          console.error("Error fetching user profile:", error);
+          setIsLoggedIn(false);
+        });
+    }
+  }, []);
 
   return (
     <div className="page">
