@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import "../blocks/Header.css";
 import logo from "../images/logo.svg";
 import avatar from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
+import CurrentUserContext from '../contexts/CurrentUserContext'
 
 function Header({
   handleAddClick,
@@ -12,6 +14,7 @@ function Header({
   handleRegisterModal,
 }) {
 
+  const currentUser = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -46,10 +49,10 @@ function Header({
 
           <Link to="/profile" className="header__link">
             <div className="header__user-container">
-              <p className="header__username">Terrence tegegne</p>
+              <p className="header__username">{currentUser.name}</p>
               <img
-                src={avatar}
-                alt="Terrence tegegne"
+                src={currentUser.avatar}
+                alt={currentUser.name}
                 className="header__avatar"
               />
             </div>
@@ -65,7 +68,7 @@ function Header({
           <img className="header__logo" src={logo} alt='header logo' />
         </Link>
         <p className="header__date-location">{currentDate} {weatherData.city}</p>
-        <div className="header__actions"> 
+        <div className="header__actions">
           <ToggleSwitch />
         </div>
         <button className="header__signup" onClick={handleRegisterModal}>Sign Up</button>

@@ -6,9 +6,9 @@ function Profile({ onCardClick, clothingItems, handleAddClick }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        
+        <SideBar />
       </section>
-      <SideBar />
+
 
       <section className="profile__clothing-items">
         <ClothesSection
