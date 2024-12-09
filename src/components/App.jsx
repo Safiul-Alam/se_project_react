@@ -80,7 +80,7 @@ function App() {
 
 
 
-  
+
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
@@ -255,6 +255,7 @@ function App() {
         onSignUp={onSignUp}
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
+        onRegister={onSignUp}
       />
 
       <LoginModal
