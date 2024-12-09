@@ -101,7 +101,7 @@ function App() {
   };
 
 
-  const onSignUp = ({ email, password, name, avatar }) => {
+  const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
     signUp(userProfile)
       .then((res) => {
@@ -252,10 +252,10 @@ function App() {
       </CurrentTemperatureUnitContext.Provider>
       <RegisterModal
         isOpen={activeModal === "signUp"}
-        onSignUp={onSignUp}
+
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
-        onRegister={onSignUp}
+        onRegister={handleRegister}
       />
 
       <LoginModal
