@@ -173,6 +173,7 @@ function App() {
             weatherData={weatherData}
             clothingItems={clothingItems}
             isLoggedIn={isLoggedIn}
+            handleRegisterModal={handleRegisterModal}
           />
           <Routes>
             <Route
@@ -226,7 +227,7 @@ function App() {
         onSignUp={onSignUp}
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
-        handleRegisterModal={handleRegisterModal}
+
       />
     </div>
   );
