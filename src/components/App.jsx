@@ -11,7 +11,7 @@ import Footer from "./Footer";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
-import { getItems, postItems, deleteItems, setCurrentUser } from "../utils/api";
+import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
 import LoginModal from './LoginModal.jsx';
@@ -38,6 +38,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   const navigate = useNavigate();
 
@@ -77,6 +78,9 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
+
+
+  
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
@@ -126,6 +130,10 @@ function App() {
       })
       .catch(console.error);
   };
+
+
+
+
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -193,7 +201,7 @@ function App() {
             clothingItems={clothingItems}
             isLoggedIn={isLoggedIn}
             handleRegisterModal={handleRegisterModal}
-            handleLoginModal = {handleLoginModal}
+            handleLoginModal={handleLoginModal}
           />
           <Routes>
             <Route
@@ -247,7 +255,13 @@ function App() {
         onSignUp={onSignUp}
         closeActiveModal={closeActiveModal}
         openLoginModal={handleLoginModal}
+      />
 
+      <LoginModal
+        isOpen={activeModal === "login"}
+        closeActiveModal={closeActiveModal}
+        onLogIn={onLogIn}
+        openRegisterModal={handleRegisterModal}
       />
     </div>
   );
