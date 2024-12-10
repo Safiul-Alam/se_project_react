@@ -24,11 +24,12 @@ function postItems({ name, imageUrl, weather }) {
   }).then(checkResponse);
 }
 
-function deleteItems(cardID) {
+function deleteItems(cardID, token) {
   return fetch(`${baseUrl}/items/${cardID}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 }
