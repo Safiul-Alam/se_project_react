@@ -9,10 +9,12 @@ function getItems() {
 }
 
 function postItems({ name, imageUrl, weather }) {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,
