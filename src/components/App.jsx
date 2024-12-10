@@ -23,6 +23,7 @@ import {
   removeCardLike,
 } from "../utils/auth";
 import * as auth from "../utils/auth.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -205,8 +206,8 @@ function App() {
   }, []);
 
   return (
+    <CurrentUserContext.Provider value={currentUser}>
     <div className="page">
-
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -237,6 +238,8 @@ function App() {
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
+                  isLoggedIn={isLoggedIn}
+                  handleLogOutClick={handleLogOutClick}
                 />
               }
             ></Route>
@@ -280,6 +283,7 @@ function App() {
         openRegisterModal={handleRegisterModal}
       />
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 
