@@ -88,7 +88,8 @@ function App() {
   const handleDeleteCard = (card) => {
     deleteItems(card._id)
       .then(() => {
-        setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
+        setClothingItems((cards) => 
+          cards.filter((selectedCard) => selectedCard._id !== card._id));
         setSelectedCard({});
         closeActiveModal();
       })
