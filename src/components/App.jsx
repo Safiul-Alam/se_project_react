@@ -15,6 +15,7 @@ import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal.jsx";
+import EditProfileModal from "./EditProfileModal.jsx";
 import {
   signUp,
   getUserProfile,
@@ -67,6 +68,12 @@ function App() {
     setActiveModal("login");
   };
 
+  const handleEditProfileClick = () => {
+    setActiveModal("edit");
+  };
+
+
+
   const handleToggleSwitchChange = () => {
     // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -87,10 +94,10 @@ function App() {
 
   const handleDeleteCard = (card) => {
     const token = localStorage.getItem('jwt'); // or wherever you store the token
-  
+
     deleteItems(card._id, token)
       .then(() => {
-        setClothingItems((cards) => 
+        setClothingItems((cards) =>
           cards.filter((selectedCard) => selectedCard._id !== card._id));
         setSelectedCard({});
         closeActiveModal();
@@ -143,6 +150,20 @@ function App() {
       console.error("Unexpected error during logout:", error);
     }
   };
+
+  const onEditProfileSubmit = ({ name, avatar }) => {
+    const token = localStorage.getItem("jwt");
+    handleEditProfile({ name, avatar }, token)
+      .then((res) => {
+        setCurrentUser({ ...currentUser, ...res });
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error("Error updating profile:", error);
+      });
+  };
+
+
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -211,6 +232,7 @@ function App() {
               handleRegisterModal={handleRegisterModal}
               handleLoginModal={handleLoginModal}
             />
+
             <Routes>
               <Route
                 path="/"
@@ -221,7 +243,8 @@ function App() {
                     clothingItems={clothingItems}
                   />
                 }
-              ></Route>
+              >
+              </Route>
               <Route
                 path="/profile"
                 element={
@@ -231,10 +254,13 @@ function App() {
                     handleAddClick={handleAddClick}
                     isLoggedIn={isLoggedIn}
                     handleLogOutClick={handleLogOutClick}
+                    handleEditProfileClick={handleEditProfileClick}
                   />
                 }
-              ></Route>
+              >
+              </Route>
             </Routes>
+
             <Footer />
           </div>
 
@@ -273,6 +299,12 @@ function App() {
           closeActiveModal={closeActiveModal}
           onLogin={handleLogIn}
           openRegisterModal={handleRegisterModal}
+        />
+
+        <EditProfileModal
+          isOpen={activeModal === "edit"}
+          onClose={closeActiveModal}
+          onEditProfileSubmit={onEditProfileSubmit}
         />
       </div>
     </CurrentUserContext.Provider>

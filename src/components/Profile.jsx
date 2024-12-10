@@ -2,16 +2,21 @@ import "../blocks/Profile.css";
 import ClothesSection from "./ClothesSection";
 import SideBar from "./SideBar";
 
-function Profile({ 
-  onCardClick, 
-  clothingItems, 
+function Profile({
+  onCardClick,
+  clothingItems,
   handleAddClick,
-  handleLogOutClick
+  handleLogOutClick,
+  handleEditProfileClick,
 }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar handleLogOutClick={handleLogOutClick}/>
+        <SideBar
+          handleLogOutClick={handleLogOutClick}
+          onEditProfileData={handleEditProfileClick}
+          handleEditProfileClick={handleEditProfileClick}
+        />
       </section>
 
 

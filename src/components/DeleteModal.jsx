@@ -6,7 +6,7 @@ export default function DeleteModal({
   isOpened,
   handleCloseClick,
   handleDeleteItem,
-  handleDeleteClose,
+
 }) {
   const deleteCard = () => {
     handleDeleteItem(item);
@@ -36,7 +36,7 @@ export default function DeleteModal({
         >
           Cancel
         </button>
-        
+
       </div>
     </div>
   );
