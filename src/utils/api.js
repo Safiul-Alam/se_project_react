@@ -8,8 +8,8 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
-function postItems({ name, imageUrl, weather, token }) {
-  // const token = localStorage.getItem("jwt");
+function postItems({ name, imageUrl, weather }) {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -24,14 +24,23 @@ function postItems({ name, imageUrl, weather, token }) {
   }).then(checkResponse);
 }
 
-function deleteItems(cardID, token) {
-  return fetch(`${baseUrl}/items/${cardID}`, {
-    method: "DELETE",
+// function deleteItems(cardID, token) {
+//   return fetch(`${baseUrl}/items/${cardID}`, {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${token}`,
+//     },
+//   }).then(checkResponse);
+// }
+
+const deleteItems = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: 'DELETE',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  }).then(checkResponse);
-}
+      'Authorization': `Bearer ${token}`
+    }
+  });
+};
 
 export { getItems, postItems, deleteItems, checkResponse, baseUrl };

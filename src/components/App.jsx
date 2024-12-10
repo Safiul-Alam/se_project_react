@@ -86,7 +86,9 @@ function App() {
   };
 
   const handleDeleteCard = (card) => {
-    deleteItems(card._id)
+    const token = localStorage.getItem('jwt'); // or wherever you store the token
+  
+    deleteItems(card._id, token)
       .then(() => {
         setClothingItems((cards) => 
           cards.filter((selectedCard) => selectedCard._id !== card._id));

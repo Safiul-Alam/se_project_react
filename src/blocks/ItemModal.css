@@ -1,13 +1,10 @@
-
-
 .modal__content_type_image {
   background-color: #ffffff;
   padding: 0;
-  
 }
 
 .modal__image {
-  width: 100%;
+  width: 90%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
@@ -26,7 +23,6 @@
   font-size: 20px;
 }
 
-
 .item-modal__delete-btn {
   font-family: "Inter";
   font-size: 20px;
@@ -37,4 +33,17 @@
   position: absolute;
   right: 32px;
   bottom: 68px;
+}
+
+@media screen and (max-width: 990px) {
+  .modal__image {
+    width: 270px;
+    height: 273px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal__image {
+    width: 60%;
+  }
 }
