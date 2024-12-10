@@ -14,7 +14,7 @@ import Profile from "./Profile";
 import { getItems, postItems, deleteItems } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
-import LoginModal from './LoginModal.jsx';
+import LoginModal from "./LoginModal.jsx";
 import {
   signUp,
   getUserProfile,
@@ -60,15 +60,12 @@ function App() {
     setActiveModal("");
   };
 
-
   const handleRegisterModal = () => {
-    setActiveModal('signUp');
+    setActiveModal("signUp");
   };
   const handleLoginModal = () => {
-    setActiveModal('login');
+    setActiveModal("login");
   };
-
-
 
   const handleToggleSwitchChange = () => {
     // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
@@ -78,9 +75,6 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
   // console.log(currentTemperatureUnit);
-
-
-
 
   const handleAddItem = (item) => {
     return postItems(item)
@@ -100,7 +94,6 @@ function App() {
       })
       .catch(console.error);
   };
-
 
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
@@ -148,10 +141,6 @@ function App() {
     }
   };
 
-
-
-
-
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -188,7 +177,6 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]); // watch activeModal here
-
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -280,7 +268,7 @@ function App() {
         <LoginModal
           isOpen={activeModal === "login"}
           closeActiveModal={closeActiveModal}
-          onLogIn={handleLogIn}
+          onLogin={handleLogIn}
           openRegisterModal={handleRegisterModal}
         />
       </div>

@@ -8,8 +8,8 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
-function postItems({ name, imageUrl, weather }) {
-  const token = localStorage.getItem("jwt");
+function postItems({ name, imageUrl, weather, token }) {
+  // const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
