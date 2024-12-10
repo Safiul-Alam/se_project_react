@@ -269,6 +269,7 @@ function App() {
             handleCloseClick={closeActiveModal}
           />
         </CurrentTemperatureUnitContext.Provider>
+        
         <RegisterModal
           isOpen={activeModal === "signUp"}
           closeActiveModal={closeActiveModal}
