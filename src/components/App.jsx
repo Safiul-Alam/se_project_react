@@ -174,7 +174,8 @@ function App() {
   //   });
   // };
 
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleCardLike = ( id, isLiked ) => {
+    console.log(id);
     const token = localStorage.getItem("jwt");
     if (!isLiked) {
       addCardLike(id, token)
