@@ -164,6 +164,15 @@ function App() {
       });
   };
 
+  // const addCardLike = (id, token) => {
+  //   return fetch(`${BASE_URL}/items/${id}/likes`, {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  // };
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
