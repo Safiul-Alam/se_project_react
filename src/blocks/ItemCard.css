@@ -42,6 +42,24 @@
   cursor: pointer;
 }
 
+.card__like-btn {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin: 0;
+  top: 24px;
+  right: 100px;
+  border: none;
+  padding: none;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url(../images/heartdefault.png);
+}
+
+.card__like-btn_liked {
+  background-image: url(../images/heartliked.png);
+}
+
 @media screen and (max-width: 990px) {
   .card__image {
     width: 270px;

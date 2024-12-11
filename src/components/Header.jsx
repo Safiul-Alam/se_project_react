@@ -4,7 +4,7 @@ import "../blocks/Header.css";
 import logo from "../images/logo.svg";
 import avatar from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
-import CurrentUserContext from '../contexts/CurrentUserContext'
+import {CurrentUserContext} from '../contexts/CurrentUserContext'
 
 function Header({
   handleAddClick,

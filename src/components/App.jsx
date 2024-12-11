@@ -24,7 +24,7 @@ import {
   removeCardLike,
 } from "../utils/auth";
 import * as auth from "../utils/auth.js";
-import CurrentUserContext from "../contexts/CurrentUserContext.js";
+import {CurrentUserContext} from "../contexts/CurrentUserContext.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -161,6 +161,29 @@ function App() {
       .catch((error) => {
         console.error("Error updating profile:", error);
       });
+  };
+
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    if (!isLiked) {
+      addCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedCard : item))
+          );
+          console.log("Item liked", updatedCard);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      removeCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedCard : item))
+          );
+        })
+        .catch(console.error);
+    }
   };
 
 

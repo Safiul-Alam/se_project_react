@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
 import "../blocks/ModalWithForm.css";
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import "../blocks/EditProfileModal.css";
 
 const EditProfileModal = ({
@@ -86,7 +86,7 @@ const EditProfileModal = ({
       {/* <button type="submit" className="modal__submit modal__save-changes">
         Save changes
       </button> */}
-      
+
     </ModalWithForm>
   );
 };

@@ -1,15 +1,14 @@
 import "../blocks/ItemModal.css";
+import { useContext } from "react";
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
-function ItemModal({ 
-  activeModal, 
-  onClose, 
-  cardData, 
-  handleDeleteClick 
-}) {
+function ItemModal({ activeModal, onClose, cardData, handleDeleteClick }) {
+  const currentUser = useContext(CurrentUserContext); 
+  const isOwner = cardData.owner === currentUser._id; 
+
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
-        
         <button
           onClick={onClose}
           type="button"
@@ -18,7 +17,7 @@ function ItemModal({
 
         <img
           src={cardData.imageUrl}
-          alt={cardData.name}                                                    
+          alt={cardData.name}
           className="modal__image"
         />
 
@@ -27,13 +26,18 @@ function ItemModal({
           <p className="modal__weather">Weather: {cardData.weather}</p>
         </div>
 
-        <button
-          type="button"
-          className="item-modal__delete-btn"
-          onClick={handleDeleteClick}
-        >
-          Delete Item
-        </button>
+        {isOwner && (
+          <button
+            type="button"
+            className="item-modal__delete-btn"
+            onClick={handleDeleteClick}
+          >
+            Delete Item
+          </button>
+        )}
+        {!isOwner && (
+          <p className="modal__no-permission">You cannot delete this item.</p>
+        )}
       </div>
     </div>
   );
