@@ -3,7 +3,6 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./Main";
-import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import { APIkey, coordinates } from "../utils/constants";
@@ -110,7 +109,7 @@ function App() {
     const userProfile = { email, password, name, avatar };
     signUp(userProfile)
       .then((res) => {
-        onLogIn({ email, password });
+        handleLogIn({ email, password });
       })
       .catch((error) => {
         console.error("error at signing up", error);
@@ -197,26 +196,7 @@ function App() {
     }
   };
 
-  // const handleLikeClick = ({ id, isLiked }) => {
-  //   const token = localStorage.getItem("jwt");
-  //   return isLiked
-  //     ? api
-  //         .removeCardLike(id, token)
-  //         .then((newCard) => {
-  //           setClothingItems((cards) =>
-  //             cards.map((item) => (item._id === id ? newCard : item))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err))
-  //     : api
-  //         .addCardLike(id, token)
-  //         .then((newCard) => {
-  //           setClothingItems((cards) =>
-  //             cards.map((item) => (item._id === id ? newCard : item))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err));
-  // };
+
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
