@@ -25,6 +25,7 @@ import {
 } from "../utils/auth";
 import * as auth from "../utils/auth.js";
 import {CurrentUserContext} from "../contexts/CurrentUserContext.js";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -264,6 +265,8 @@ function App() {
                     weatherData={weatherData}
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onToggleLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               >
@@ -271,6 +274,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <Profile
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
@@ -278,7 +282,9 @@ function App() {
                     isLoggedIn={isLoggedIn}
                     handleLogOutClick={handleLogOutClick}
                     handleEditProfileClick={handleEditProfileClick}
+                    onToggleLike={handleCardLike}
                   />
+                  </ProtectedRoute>
                 }
               >
               </Route>
