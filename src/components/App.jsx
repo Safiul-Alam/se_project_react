@@ -105,6 +105,7 @@ function App() {
       .catch(console.error);
   };
 
+  
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
     signUp(userProfile)

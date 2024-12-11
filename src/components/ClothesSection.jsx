@@ -2,7 +2,10 @@
 import ItemCard from "./ItemCard";
 import "../blocks/ClothesSection.css";
 
-function ClothesSection({ onCardClick, clothingItems, handleAddClick, isLoggedIn, handleCardLike }) {
+function ClothesSection({ 
+  onCardClick, 
+  clothingItems, handleAddClick, 
+  isLoggedIn, handleCardLike }) {
   return (
     <div className="clothes-section">
       <div className="clothes__header">
