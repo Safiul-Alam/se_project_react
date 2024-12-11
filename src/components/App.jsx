@@ -196,7 +196,26 @@ function App() {
     }
   };
 
-
+  // const handleLikeClick = ({ id, isLiked }) => {
+  //   const token = localStorage.getItem("jwt");
+  //   return isLiked
+  //     ? api
+  //         .removeCardLike(id, token)
+  //         .then((newCard) => {
+  //           setClothingItems((cards) =>
+  //             cards.map((item) => (item._id === id ? newCard : item))
+  //           );
+  //         })
+  //         .catch((err) => console.log(err))
+  //     : api
+  //         .addCardLike(id, token)
+  //         .then((newCard) => {
+  //           setClothingItems((cards) =>
+  //             cards.map((item) => (item._id === id ? newCard : item))
+  //           );
+  //         })
+  //         .catch((err) => console.log(err));
+  // };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
