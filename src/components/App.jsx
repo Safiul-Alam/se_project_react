@@ -267,6 +267,7 @@ function App() {
                     clothingItems={clothingItems}
                     onToggleLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
+                    handleCardLike={handleCardLike}
                   />
                 }
               >
@@ -283,6 +284,7 @@ function App() {
                     handleLogOutClick={handleLogOutClick}
                     handleEditProfileClick={handleEditProfileClick}
                     onToggleLike={handleCardLike}
+                    handleCardLike={handleCardLike}
                   />
                   </ProtectedRoute>
                 }

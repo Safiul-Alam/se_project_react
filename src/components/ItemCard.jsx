@@ -8,6 +8,7 @@ function ItemCard({
   onToggleLike,
   isLoggedIn,
   likedItems,
+  
 }) {
   // console.log(item)
   const currentUser = useContext(CurrentUserContext);
