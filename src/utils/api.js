@@ -40,7 +40,7 @@ const deleteItems = (id, token) => {
     headers: {
       'Authorization': `Bearer ${token}`
     }
-  });
+  }).then(checkResponse);
 };
 
 export { getItems, postItems, deleteItems, checkResponse, baseUrl };
