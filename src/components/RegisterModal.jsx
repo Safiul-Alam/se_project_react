@@ -96,6 +96,7 @@ export default function RegisterModal({
             onChange={handleAvatarChange}
           />
         </label>
+        
         <button
           type="button"
           onClick={handleLoginClick}

@@ -68,6 +68,7 @@ export default function LoginModal({
           onChange={handlePasswordChange}
         />
       </label>
+      
       <button
         type="button"
         onClick={handleSignUpClick}
