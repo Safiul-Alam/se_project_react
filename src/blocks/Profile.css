@@ -18,4 +18,5 @@
 
 .profile__clothing-items {
   display: flex;
+  padding: 0;
 }
