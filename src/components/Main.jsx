@@ -6,7 +6,13 @@ import ItemCard from "./ItemCard";
 // import { defaultClothingItems } from "../utils/constants";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, onCardClick, clothingItems, isLoggedIn, handleCardLike, onToggleLike  }) {
+function Main({ weatherData,
+  onCardClick,
+  clothingItems,
+  isLoggedIn,
+  handleCardLike,
+  onToggleLike
+}) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   // const temp = weatherData?.temp?.[currentTemperatureUnit] || 999;
   // console.log('This is a prop from our Parent App.jsx =>', clothingItems)
@@ -24,11 +30,12 @@ function Main({ weatherData, onCardClick, clothingItems, isLoggedIn, handleCardL
           {clothingItems
             .filter((item) => item.weather === weatherData.type)
             .map((item) => (
-              <ItemCard key={item._id} item={item} 
-              onCardClick={onCardClick} 
-              isLoggedIn={isLoggedIn}
-              handleCardLike={handleCardLike}
-              onToggleLike={onToggleLike}
+              <ItemCard key={item._id} item={item}
+                onCardClick={onCardClick}
+                isLoggedIn={isLoggedIn}
+                handleCardLike={handleCardLike}
+                onToggleLike={onToggleLike}
+
               />
             ))}
         </ul>

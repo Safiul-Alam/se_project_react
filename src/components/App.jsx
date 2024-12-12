@@ -105,7 +105,7 @@ function App() {
       .catch(console.error);
   };
 
-  
+
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
     signUp(userProfile)
@@ -119,7 +119,8 @@ function App() {
 
   const handleLogIn = ({ email, password }) => {
     console.log("login");
-    auth
+    
+    return auth
       .logIn({ email, password })
       .then((data) => {
         console.log("data", data);
@@ -164,15 +165,7 @@ function App() {
       });
   };
 
-  // const addCardLike = (id, token) => {
-  //   return fetch(`${BASE_URL}/items/${id}/likes`, {
-  //     method: "PUT",
-  //     headers: {
-  //       authorization: `Bearer ${token}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  // };
+
 
   const handleCardLike = ( id, isLiked ) => {
     console.log(id);
@@ -275,9 +268,10 @@ function App() {
                     weatherData={weatherData}
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onToggleLike={handleCardLike}
+                    // onToggleLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
                     handleCardLike={handleCardLike}
+                    handleAddClick={handleAddClick}
                   />
                 }
               >
@@ -293,7 +287,7 @@ function App() {
                     isLoggedIn={isLoggedIn}
                     handleLogOutClick={handleLogOutClick}
                     handleEditProfileClick={handleEditProfileClick}
-                    onToggleLike={handleCardLike}
+                    // onToggleLike={handleCardLike}
                     handleCardLike={handleCardLike}
                   />
                   </ProtectedRoute>

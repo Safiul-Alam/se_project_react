@@ -8,6 +8,7 @@ function ItemCard({
   onToggleLike,
   isLoggedIn,
   likedItems,
+  handleCardLike,
   
 }) {
   // console.log(item)
@@ -20,7 +21,7 @@ function ItemCard({
   };
 
   const handleLike = () => {
-    onToggleLike(item._id, isLiked);
+    handleCardLike(item._id, isLiked);
   };
 
 
