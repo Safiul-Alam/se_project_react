@@ -6,16 +6,19 @@ import ItemCard from "./ItemCard";
 // import { defaultClothingItems } from "../utils/constants";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData,
+function Main({ 
+  weatherData,
   onCardClick,
   clothingItems,
   isLoggedIn,
   handleCardLike,
-  onToggleLike
+  onToggleLike,
+  handleAddClick
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   // const temp = weatherData?.temp?.[currentTemperatureUnit] || 999;
   // console.log('This is a prop from our Parent App.jsx =>', clothingItems)
+  
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -35,7 +38,7 @@ function Main({ weatherData,
                 isLoggedIn={isLoggedIn}
                 handleCardLike={handleCardLike}
                 onToggleLike={onToggleLike}
-
+                handleAddClick={handleAddClick}
               />
             ))}
         </ul>

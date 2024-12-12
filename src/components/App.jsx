@@ -83,6 +83,8 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
+
+  
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
