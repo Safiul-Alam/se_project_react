@@ -15,6 +15,7 @@ function Profile({
 }) {
   return (
     <div className="profile">
+
       <section className="profile__sidebar">
         <SideBar
           handleLogOutClick={handleLogOutClick}
@@ -22,7 +23,6 @@ function Profile({
           handleEditProfileClick={handleEditProfileClick}
         />
       </section>
-
 
       <section className="profile__clothing-items">
         <ClothesSection
@@ -34,6 +34,7 @@ function Profile({
           // onToggleLike={onToggleLike}
         />
       </section>
+
     </div>
   );
 }
