@@ -1,4 +1,5 @@
 .profile {
+  width: 1360px;
   display: flex;
   justify-content: space-between;
   gap: 116px;
@@ -12,11 +13,14 @@
 
 .profile__sidebar {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   width: 229px;
 }
 
 .profile__clothing-items {
+  width: 1015px;
   display: flex;
   padding: 0;
+  margin: 0;
+  width: 100%;
 }
