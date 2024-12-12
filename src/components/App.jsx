@@ -84,7 +84,7 @@ function App() {
   // console.log(currentTemperatureUnit);
 
 
-  
+
   const handleAddItem = (item) => {
     return postItems(item)
       .then((newItem) => {
@@ -340,7 +340,7 @@ function App() {
 
         <EditProfileModal
           isOpen={activeModal === "edit"}
-          onClose={closeActiveModal}
+          closeActiveModal={closeActiveModal}
           onEditProfileSubmit={onEditProfileSubmit}
         />
       </div>
