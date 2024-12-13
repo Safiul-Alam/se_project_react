@@ -121,29 +121,26 @@ function App() {
       });
   };
 
-  const handleLogIn = ({ email, password }) => {
+const handleLogIn = async ({ email, password }) => {
+  try {
     setIsLoading(true);
-    console.log("login");
+    const data = await auth.logIn({ email, password });
+    localStorage.setItem("jwt", data.token);
 
-    return auth
-      .logIn({ email, password })
-      .then((data) => {
-        console.log("data", data);
+    const res = await getUserProfile(data.token);
+    setCurrentUser(res);
+    setIsLoggedIn(true);
+    navigate("/profile");
+    closeActiveModal();
+  } 
+  catch (error) {
+    console.error('Login failed:', error);
+    console.error('Invalid email or password');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
-        localStorage.setItem("jwt", data.token);
-        getUserProfile(data.token).then((res) => {
-          console.log(res);
-          setCurrentUser(res);
-          setIsLoggedIn(true);
-          navigate("/profile");
-        });
-        closeActiveModal();
-      })
-      .catch(console.error)
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
 
   const handleLogOutClick = () => {
     setIsLoading(true);
