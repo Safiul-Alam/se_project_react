@@ -94,7 +94,10 @@ function App() {
         setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleDeleteCard = (card) => {
@@ -107,10 +110,11 @@ function App() {
         setSelectedCard({});
         closeActiveModal();
       })
-      .catch(console.error)
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .catch(console.error);
+      // .finally(() => {
+      //   setIsLoading(false);
+        
+      // });
   };
 
 
