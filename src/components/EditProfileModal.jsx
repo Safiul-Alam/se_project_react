@@ -8,6 +8,7 @@ const EditProfileModal = ({
   isOpen,
   closeActiveModal,
   onEditProfileSubmit,
+  isLoading
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState("");
@@ -46,7 +47,7 @@ const EditProfileModal = ({
 
   return (
     <ModalWithForm
-      buttonText="Save Changes"
+      buttonText={isLoading? 'Saving...' : 'Save'}
       buttonClass={`modal__submit ${
         isButtonActive ? "modal__submit_active" : ""
       }`}

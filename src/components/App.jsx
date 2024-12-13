@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {React, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
@@ -23,7 +23,7 @@ import {
   removeCardLike,
 } from "../utils/auth";
 import * as auth from "../utils/auth.js";
-import {CurrentUserContext} from "../contexts/CurrentUserContext.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
@@ -41,6 +41,8 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -86,6 +88,7 @@ function App() {
 
 
   const handleAddItem = (item) => {
+    setIsLoading(true);
     return postItems(item)
       .then((newItem) => {
         setClothingItems([newItem.data, ...clothingItems]);
@@ -104,7 +107,10 @@ function App() {
         setSelectedCard({});
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
 
@@ -121,7 +127,7 @@ function App() {
 
   const handleLogIn = ({ email, password }) => {
     console.log("login");
-    
+
     return auth
       .logIn({ email, password })
       .then((data) => {
@@ -169,7 +175,7 @@ function App() {
 
 
 
-  const handleCardLike = ( id, isLiked ) => {
+  const handleCardLike = (id, isLiked) => {
     console.log(id);
     const token = localStorage.getItem("jwt");
     if (!isLiked) {
@@ -282,16 +288,16 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <Profile
-                    onCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    handleAddClick={handleAddClick}
-                    isLoggedIn={isLoggedIn}
-                    handleLogOutClick={handleLogOutClick}
-                    handleEditProfileClick={handleEditProfileClick}
-                    // onToggleLike={handleCardLike}
-                    handleCardLike={handleCardLike}
-                  />
+                    <Profile
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                      isLoggedIn={isLoggedIn}
+                      handleLogOutClick={handleLogOutClick}
+                      handleEditProfileClick={handleEditProfileClick}
+                      // onToggleLike={handleCardLike}
+                      handleCardLike={handleCardLike}
+                    />
                   </ProtectedRoute>
                 }
               >
@@ -305,6 +311,7 @@ function App() {
             onCloseModal={closeActiveModal}
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItem}
+            isLoading={isLoading}
           />
 
           <ItemModal
@@ -312,6 +319,7 @@ function App() {
             cardData={selectedCard}
             onClose={closeActiveModal}
             handleDeleteClick={handleDeleteCardClick}
+            
           />
 
           <DeleteModal
@@ -336,12 +344,14 @@ function App() {
           closeActiveModal={closeActiveModal}
           onLogin={handleLogIn}
           handleSignUpClick={handleRegisterModal}
+          isLoading={isLoading}
         />
 
         <EditProfileModal
           isOpen={activeModal === "edit"}
           closeActiveModal={closeActiveModal}
           onEditProfileSubmit={onEditProfileSubmit}
+          isLoading={isLoading}
         />
       </div>
     </CurrentUserContext.Provider>
