@@ -24,22 +24,12 @@ function postItems({ name, imageUrl, weather }) {
   }).then(checkResponse);
 }
 
-// function deleteItems(cardID, token) {
-//   return fetch(`${baseUrl}/items/${cardID}`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${token}`,
-//     },
-//   }).then(checkResponse);
-// }
-
 const deleteItems = (id, token) => {
   return fetch(`${baseUrl}/items/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      'Authorization': `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   }).then(checkResponse);
 };
 
