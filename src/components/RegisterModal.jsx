@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
 import "../blocks/ModalWithForm.css";
 import "../blocks/RegisterModal.css";
+import { useForm } from "../hooks/useForm";
 
 export default function RegisterModal({
     closeActiveModal,
@@ -10,31 +11,41 @@ export default function RegisterModal({
     onRegister,
     handleLoginClick,
   }) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [avatar, setAvatar] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [name, setName] = useState("");
+    // const [avatar, setAvatar] = useState("");
+
+    const { values, handleChange, setValues } = useForm({ 
+      email: '', 
+      password: '', 
+      name: '', 
+      avatar: '' 
+    });
+
   
-    function handleEmailChange(e) {
-      setEmail(e.target.value);
-    }
+    // function handleEmailChange(e) {
+    //   setEmail(e.target.value);
+    // }
   
-    function handlePasswordChange(e) {
-      setPassword(e.target.value);
-    }
+    // function handlePasswordChange(e) {
+    //   setPassword(e.target.value);
+    // }
   
-    function handleNameChange(e) {
-      setName(e.target.value);
-    }
+    // function handleNameChange(e) {
+    //   setName(e.target.value);
+    // }
   
-    function handleAvatarChange(e) {
-      setAvatar(e.target.value);
-    }
+    // function handleAvatarChange(e) {
+    //   setAvatar(e.target.value);
+    // }
+
   
     function handleRegister(e) {
       e.preventDefault();
       console.log("modal submitted");
-      onRegister({ email, password, name, avatar });
+      // onRegister({ email, password, name, avatar });
+      onRegister(values);
     }
   
     return (
@@ -49,51 +60,51 @@ export default function RegisterModal({
           Email{" "}
           <input
             required
-            value={email}
+            value={values.email}
             autoComplete="off"
             type="email"
             className="modal__input"
             id="email"
             placeholder="Email"
-            onChange={handleEmailChange}
+            onChange={handleChange}
           />
         </label>
         <label className="modal__label">
           Password{" "}
           <input
             required
-            value={password}
+            value={values.password}
             autoComplete="off"
             type="text"
             className="modal__input"
             id="password"
             placeholder="Password"
-            onChange={handlePasswordChange}
+            onChange={handleChange}
           />
         </label>
         <label className="modal__label">
           Name{" "}
           <input
             required
-            value={name}
+            value={values.name}
             autoComplete="off"
             type="text"
             className="modal__input"
             id="name"
             placeholder="Name"
-            onChange={handleNameChange}
+            onChange={handleChange}
           />
         </label>
         <label className="modal__label">
           Avatar Url{" "}
           <input
             required
-            value={avatar}
+            value={values.avatar}
             type="url"
             className="modal__input"
             id="avatar"
             placeholder="Avatar URL"
-            onChange={handleAvatarChange}
+            onChange={handleChange}
           />
         </label>
         

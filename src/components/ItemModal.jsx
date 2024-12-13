@@ -39,9 +39,11 @@ function ItemModal({ activeModal,
             Delete Item
           </button>
         )}
+
         {!isOwner && (
           <p className="modal__no-permission">You cannot delete this item.</p>
         )}
+        
       </div>
     </div>
   );
