@@ -1,4 +1,4 @@
-import {React, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
@@ -74,8 +74,6 @@ function App() {
     setActiveModal("edit");
   };
 
-
-
   const handleToggleSwitchChange = () => {
     // if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     // if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -84,8 +82,6 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
   // console.log(currentTemperatureUnit);
-
-
 
   const handleAddItem = (item) => {
     setIsLoading(true);
@@ -101,18 +97,18 @@ function App() {
   };
 
   const handleDeleteCard = (card) => {
-    const token = localStorage.getItem('jwt'); // or wherever you store the token
+    const token = localStorage.getItem("jwt"); // or wherever you store the token
 
     deleteItems(card._id, token)
       .then(() => {
         setClothingItems((cards) =>
-          cards.filter((selectedCard) => selectedCard._id !== card._id));
+          cards.filter((selectedCard) => selectedCard._id !== card._id)
+        );
         setSelectedCard({});
         closeActiveModal();
       })
       .catch(console.error);
   };
-
 
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
@@ -126,6 +122,7 @@ function App() {
   };
 
   const handleLogIn = ({ email, password }) => {
+    setIsLoading(true);
     console.log("login");
 
     return auth
@@ -142,10 +139,14 @@ function App() {
         });
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleLogOutClick = () => {
+    setIsLoading(true);
     try {
       localStorage.removeItem("jwt");
       Promise.resolve()
@@ -157,7 +158,10 @@ function App() {
           console.error("Error during logout:", error);
         });
     } catch (error) {
-      console.error("Unexpected error during logout:", error);
+      console.error("Unexpected error during logout:", error)
+      .finally(() => {
+        setIsLoading(false);
+      });
     }
   };
 
@@ -172,8 +176,6 @@ function App() {
         console.error("Error updating profile:", error);
       });
   };
-
-
 
   const handleCardLike = (id, isLiked) => {
     console.log(id);
@@ -197,8 +199,6 @@ function App() {
         .catch(console.error);
     }
   };
-
-
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -282,8 +282,7 @@ function App() {
                     handleAddClick={handleAddClick}
                   />
                 }
-              >
-              </Route>
+              ></Route>
               <Route
                 path="/profile"
                 element={
@@ -300,8 +299,7 @@ function App() {
                     />
                   </ProtectedRoute>
                 }
-              >
-              </Route>
+              ></Route>
             </Routes>
 
             <Footer />
@@ -319,7 +317,6 @@ function App() {
             cardData={selectedCard}
             onClose={closeActiveModal}
             handleDeleteClick={handleDeleteCardClick}
-            
           />
 
           <DeleteModal
