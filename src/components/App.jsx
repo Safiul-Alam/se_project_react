@@ -111,10 +111,6 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
-      // .finally(() => {
-      //   setIsLoading(false);
-        
-      // });
   };
 
 
