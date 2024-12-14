@@ -8,7 +8,6 @@
   text-align: left;
 }
 
-
 .cards__list {
   display: flex;
   flex-wrap: wrap;
@@ -16,4 +15,14 @@
   padding: 0;
   list-style-type: none;
   gap: 21px;
+}
+
+@media screen and (max-width: 600px) {
+  .cards__list {
+    flex-direction: column;
+  }
+
+  .card__image {
+    width: 270px;
+  }
 }
