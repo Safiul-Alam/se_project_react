@@ -19,7 +19,9 @@ async function signUp({ email, password, name, avatar }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password, name, avatar }),
-  }).then(checkResponse);
+  });
+  
+  return checkResponse(res); // Ensure this returns the response
 }
 
 async function logIn({ email, password }) {
