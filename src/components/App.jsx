@@ -83,12 +83,13 @@ function App() {
   };
   // console.log(currentTemperatureUnit);
 
-  const handleAddItem = (item) => {
+  const handleAddItem = (item, resetInputs) => {
     setIsLoading(true);
     return postItems(item)
       .then((newItem) => {
         setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
+        resetInputs();
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -121,25 +122,25 @@ function App() {
       });
   };
 
-const handleLogIn = async ({ email, password }) => {
-  try {
-    setIsLoading(true);
-    const data = await auth.logIn({ email, password });
-    localStorage.setItem("jwt", data.token);
+  const handleLogIn = async ({ email, password }) => {
+    try {
+      setIsLoading(true);
+      const data = await auth.logIn({ email, password });
+      localStorage.setItem("jwt", data.token);
 
-    const res = await getUserProfile(data.token);
-    setCurrentUser(res);
-    setIsLoggedIn(true);
-    navigate("/profile");
-    closeActiveModal();
-  } 
-  catch (error) {
-    console.error('Login failed:', error);
-    console.error('Invalid email or password');
-  } finally {
-    setIsLoading(false);
-  }
-};
+      const res = await getUserProfile(data.token);
+      setCurrentUser(res);
+      setIsLoggedIn(true);
+      navigate("/profile");
+      closeActiveModal();
+    }
+    catch (error) {
+      console.error('Login failed:', error);
+      console.error('Invalid email or password');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
 
   const handleLogOutClick = () => {
@@ -153,12 +154,15 @@ const handleLogIn = async ({ email, password }) => {
         })
         .catch((error) => {
           console.error("Error during logout:", error);
-        });
-    } catch (error) {
+        }).finally(() => {
+          setIsLoading(false);
+        })
+    }
+    catch (error) {
       console.error("Unexpected error during logout:", error)
-      .finally(() => {
-        setIsLoading(false);
-      });
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
 

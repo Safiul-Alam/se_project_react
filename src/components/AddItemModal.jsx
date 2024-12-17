@@ -26,13 +26,6 @@ const AddItemModal = ({
     setWeather(e.target.value);
   };
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   onAddItem(e);
-  // }
-  // const resetCurrentForm = () => {
-  //   resetForm({ name: "", imageUrl: "", weather: "" });
-  // };
 
   const resetInputs = () => {
     setName("");
