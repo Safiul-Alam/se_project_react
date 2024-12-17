@@ -113,7 +113,7 @@ function App() {
 
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
-    signUp(userProfile)
+    return signUp(userProfile)
       .then((res) => {
         handleLogIn({ email, password });
       })
