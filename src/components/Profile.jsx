@@ -10,12 +10,9 @@ function Profile({
   handleEditProfileClick,
   isLoggedIn,
   handleCardLike,
- 
-
 }) {
   return (
     <div className="profile">
-
       <section className="profile__sidebar">
         <SideBar
           handleLogOutClick={handleLogOutClick}
@@ -34,7 +31,6 @@ function Profile({
           // onToggleLike={onToggleLike}
         />
       </section>
-
     </div>
   );
 }
