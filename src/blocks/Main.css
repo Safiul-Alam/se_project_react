@@ -1,5 +1,6 @@
 .cards {
   display: flex;
+  padding-top: 20px;
 }
 
 .cards__text {
@@ -22,6 +23,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+  }
   .cards__list {
     flex-direction: column;
   }

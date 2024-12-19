@@ -259,7 +259,9 @@ function App() {
         <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
+
           <div className="page__content">
+
             <Header
               handleAddClick={handleAddClick}
               weatherData={weatherData}
@@ -284,6 +286,7 @@ function App() {
                   />
                 }
               ></Route>
+              
               <Route
                 path="/profile"
                 element={
