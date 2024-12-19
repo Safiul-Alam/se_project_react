@@ -1,3 +1,7 @@
+.cards {
+  display: flex;
+}
+
 .cards__text {
   margin-top: 40px;
   margin-bottom: 34px;
