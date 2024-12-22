@@ -114,7 +114,7 @@ function App() {
   const handleRegister = ({ email, password, name, avatar }) => {
     const userProfile = { email, password, name, avatar };
     return signUp(userProfile)
-      .then((res) => {
+      .then(() => {
         handleLogIn({ email, password });
       })
       .catch((error) => {
