@@ -1,5 +1,5 @@
-import { baseUrl } from "./api";
-import { checkResponse } from "./api";
+import { baseUrl, checkResponse  } from "./api";
+
 
 export const checkToken = (token) => {
   return fetch(`${baseUrl}/users/me`, {
